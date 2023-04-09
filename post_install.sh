@@ -3,9 +3,9 @@ set -eu
 
 # Fetch the necessary ports
 portsnap fetch
-portsnap extract Mk
-portsnap extract ports-mgmt/pkg
-portsnap extract net-p2p/rslsync
+for path in Mk UIDs GIDs Keywords Templates ports-mgmt/pkg net-p2p/rslsync; do
+    portsnap extract "$path"
+done
 
 # Build and install rslsync
 cd /usr/ports/net-p2p/rslsync/
